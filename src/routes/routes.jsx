@@ -1,5 +1,5 @@
 import Layout from '../layout/Layout'
-import Homepage from '../pages/Homapage'
+import Homepage from '../pages/Homepage'
 import Movies from '../pages/Movies'
 import MovieDetail from '../pages/MovieDetail'
 import TVSeries from '../pages/TVSeries'
