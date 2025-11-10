@@ -4,12 +4,18 @@ import viteLogo from '/vite.svg'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
+import { FavoritesContextProvider } from './providers/FavoritesContextProvider'
+
 import routes from './routes/routes'
 import './App.css'
 
 function App() {
 
-  return <RouterProvider router={router} />
+  return (
+    <FavoritesContextProvider>
+      <RouterProvider router={router} />
+    </FavoritesContextProvider>
+  )
 }
 
 const router = createBrowserRouter(routes)
