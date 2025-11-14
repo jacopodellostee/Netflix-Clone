@@ -18,11 +18,22 @@ function Homepage() {
                     {!loading && !error && movies.length > 0 ? (
                         movies.map((movie) => (
                             <div key={movie.id} className="carousel-item">
-                                <img
-                                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                                    alt={movie.title}
-                                />
-                                <p className="movie-title">{movie.title}</p>
+                                <div className="carousel-wrapper">
+                                    <img
+                                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                        alt={movie.title}
+                                    />
+                                </div>
+                                <div className="carousel-details">
+                                    <p className="details-title">{movie.title}</p>
+
+                                    <div className="action-buttons">
+                                        <button className="play-button">▶</button>
+                                        <button className="add-button">+</button>
+                                        <button className="info-button">ⓘ</button>
+                                    </div>
+                                </div>
+
                             </div>
                         ))
                     ) : (
@@ -37,11 +48,22 @@ function Homepage() {
                     {!loading && !error && moviesNowPlaying.length > 0 ? (
                         moviesNowPlaying.map((movieNowPlaying) => (
                             <div key={movieNowPlaying.id} className="carousel-item">
-                                <img
-                                    src={`https://image.tmdb.org/t/p/w500${movieNowPlaying.poster_path}`}
-                                    alt={movieNowPlaying.title}
-                                />
-                                <p className="movie-title">{movieNowPlaying.title}</p>
+                                <div className="carousel-wrapper">
+                                    <img
+                                        src={`https://image.tmdb.org/t/p/w500${movieNowPlaying.poster_path}`}
+                                        alt={movieNowPlaying.title}
+                                    />
+                                </div>
+                                <div className="carousel-details">
+                                    <p className="details-title">{movieNowPlaying.title}</p>
+
+                                    <div className="action-buttons">
+                                        <button className="play-button">▶</button>
+                                        <button className="add-button">+</button>
+                                        <button className="info-button">ⓘ</button>
+                                    </div>
+                                </div>
+
                             </div>
                         ))
                     ) : (
@@ -56,15 +78,26 @@ function Homepage() {
                     {!loading && !error && series.length > 0 ? (
                         series.map((serie) => (
                             <div key={serie.id} className="carousel-item">
-                                <img
-                                    src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
-                                    alt={serie.title}
-                                />
-                                <p className="movie-title">{serie.title}</p>
+                                <div className="carousel-wrapper">
+                                    <img
+                                        src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
+                                        alt={serie.title}
+                                    />
+                                </div>
+                                <div className="carousel-details">
+                                    <p className="details-title">{serie.title}</p>
+
+                                    <div className="action-buttons">
+                                        <button className="play-button">▶</button>
+                                        <button className="add-button">+</button>
+                                        <button className="info-button">ⓘ</button>
+                                    </div>
+                                </div>
+
                             </div>
                         ))
                     ) : (
-                        !loading && !error && <p>No Series Tv found.</p>
+                        !loading && !error && <p>No series found.</p>
                     )}
                 </div>
                 <h2 className="ms-4 text-xl font-bold" >Recently Released Series Tv</h2>
@@ -75,11 +108,22 @@ function Homepage() {
                     {!loading && !error && seriesNowPlaying.length > 0 ? (
                         seriesNowPlaying.map((serieNowPlaying) => (
                             <div key={serieNowPlaying.id} className="carousel-item">
-                                <img
-                                    src={`https://image.tmdb.org/t/p/w500${serieNowPlaying.poster_path}`}
-                                    alt={serieNowPlaying.title}
-                                />
-                                <p className="movie-title">{serieNowPlaying.title}</p>
+                                <div className="carousel-wrapper">
+                                    <img
+                                        src={`https://image.tmdb.org/t/p/w500${serieNowPlaying.poster_path}`}
+                                        alt={serieNowPlaying.title}
+                                    />
+                                </div>
+                                <div className="carousel-details">
+                                    <p className="details-title">{serieNowPlaying.title}</p>
+
+                                    <div className="action-buttons">
+                                        <button className="play-button">▶</button>
+                                        <button className="add-button">+</button>
+                                        <button className="info-button">ⓘ</button>
+                                    </div>
+                                </div>
+
                             </div>
                         ))
                     ) : (
