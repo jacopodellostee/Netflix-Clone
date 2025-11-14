@@ -1,52 +1,27 @@
-/* src/components/Header.css */
 
-.header {
-    /* Larghezza intera (schermo intero) */
+.hero {
     width: 100%; 
-    
-    /* Altezza fissa come richiesto: 60% dell'altezza della finestra */
     height: 60vh; 
-    
-    /* Gestione dell'immagine di sfondo */
-    background-size: cover; /* Assicura che l'immagine copra tutto lo spazio */
-    background-position: center top; /* Posiziona l'immagine centralmente */
+    background-size: cover;
+    background-position: center top; 
     background-repeat: no-repeat;
-    
-    /* Posizionamento relativo per posizionare il contenuto in modo assoluto */
     position: relative; 
-    
-    /* Colore di fallback per il caricamento o errore */
-    background-color: #141414; /* Tipico sfondo nero di Netflix */
-    
-    /* Impedisce ai margini di collassare, utile per layout */
+    background-color: #141414;
     margin-bottom: 20px; 
 }
-
-/* Stato di caricamento (opzionale) */
-.header.loading-state {
-    min-height: 60vh;
-}
-
-/* Contenuto del testo e dei pulsanti */
-.header-content {
+.hero-content {
     position: absolute;
-    bottom: 0; /* Ancorato in basso */
+    bottom: 0;
     left: 0;
-    
-    /* Spaziatura interna */
     padding: 0 50px 80px 50px; 
-    
-    /* Larghezza massima per evitare che il testo sia troppo largo */
     max-width: 600px; 
-    
-    /* Stili del testo */
     color: white;
 }
 
 .movie-title {
-    font-size: 4rem; /* Grande e impattante */
+    font-size: 4rem;
     margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Leggibilità su sfondo chiaro */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .movie-overview {
@@ -56,8 +31,6 @@
     margin-bottom: 1.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
-/* Stili per i pulsanti */
 .action-buttons button {
     padding: 10px 20px;
     font-size: 1.1rem;
@@ -67,22 +40,4 @@
     cursor: pointer;
     margin-right: 15px;
     transition: background-color 0.2s;
-}
-
-.play-button {
-    background-color: white;
-    color: black;
-}
-
-.play-button:hover {
-    background-color: rgba(255, 255, 255, 0.75);
-}
-
-.more-info-button {
-    background-color: rgba(109, 109, 110, 0.7); /* Grigio semitrasparente */
-    color: white;
-}
-
-.more-info-button:hover {
-    background-color: rgba(109, 109, 110, 0.5);
 }
