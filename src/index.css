@@ -1,1 +1,65 @@
 @import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Roboto', sans-serif;
+  --font-heading: 'Nunito', sans-serif;
+  --color-neutral-100: #6b6b6c;
+  --color-primary: #7d035d;
+  --color-secondary: #f8bc0d;
+  --color-salmon: #fc4259;
+  --color-accent: #00d6db;
+  --text-heading-big: 3.125rem;
+  --text-heading-big--line-height: 1;
+  --text-heading-medium: 2.5rem;
+  --text-heading-medium--line-height: 1;
+  --text-heading-small: 1.5rem;
+  --text-heading-small--line-height: 1;
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+
+.linear-bg {
+  @apply bg-linear-to-b from-[#f6f6f6] to-[#f9f9f9];
+}
+
+
+body{
+    background-color: #1d1d1d;
+    color: white;
+}
+
+.carousel-row {
+    overflow-x: scroll;
+    scrollbar-width: none; 
+}
+
+.carousel-row::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    width: 250px;
+    margin-right: 10px; 
+    flex-shrink: 0; 
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto; 
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.carousel-item:hover {
+    transform: scale(1.08); 
+    z-index: 10; 
+}
+
+.carousel-item .movie-title {
+    display: none;
+}

@@ -1,0 +1,43 @@
+
+.hero {
+    width: 100%; 
+    height: 60vh; 
+    background-size: cover;
+    background-position: center top; 
+    background-repeat: no-repeat;
+    position: relative; 
+    background-color: #141414;
+    margin-bottom: 20px; 
+}
+.hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0 50px 80px 50px; 
+    max-width: 600px; 
+    color: white;
+}
+
+.movie-title {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.movie-overview {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    max-width: 90%;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.action-buttons button {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: background-color 0.2s;
+}
