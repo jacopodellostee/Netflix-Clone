@@ -3,8 +3,10 @@ import { createContext } from 'react';
 const MoviesContext = createContext({
     topMovieToday: null,
     trendingMovies: [],
-    popularMovies: [],
-    popularSeries: [],
+    topRatedMovies: [],
+    topRatedSeries: [],
+    nowPlayingMovies: [],
+    nowPlayingSeries: [],
     loading: true,
 });
 
