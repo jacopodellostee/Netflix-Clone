@@ -4,6 +4,7 @@ const MoviesContext = createContext({
     topMovieToday: null,
     trendingMovies: [],
     popularMovies: [],
+    popularSeries: [],
     loading: true,
 });
 

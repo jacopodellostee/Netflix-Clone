@@ -6,15 +6,22 @@ const ACCESS_TOKEN = import.meta.env.VITE_APP_BEARER_TOKEN;
 
 
 async function getTrendingMovies() {
-    const response = await fetch(`${BASE_URL}/trending/movie/day`, { 
-        headers: { Authorization: `Bearer ${ACCESS_TOKEN}` } 
+    const response = await fetch(`${BASE_URL}/trending/movie/day`, {
+        headers: { Authorization: `Bearer ${ACCESS_TOKEN}` }
     });
     return (await response.json()).results;
 }
 
 async function getPopularMovies() {
-    const response = await fetch(`${BASE_URL}/movie/popular`, { 
-        headers: { Authorization: `Bearer ${ACCESS_TOKEN}` } 
+    const response = await fetch(`${BASE_URL}/movie/popular`, {
+        headers: { Authorization: `Bearer ${ACCESS_TOKEN}` }
+    });
+    return (await response.json()).results;
+}
+
+async function getPopularSeries() {
+    const response = await fetch(`${BASE_URL}/tv/popular`, {
+        headers: { Authorization: `Bearer ${ACCESS_TOKEN}` }
     });
     return (await response.json()).results;
 }
@@ -22,17 +29,20 @@ async function getPopularMovies() {
 export const MoviesDataProvider = ({ children }) => {
     const [trendingMovies, setTrendingMovies] = useState([]);
     const [popularMovies, setPopularMovies] = useState([]);
+    const [popularSeries, setPopularSeries] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [trendingResults, popularResults] = await Promise.all([
+                const [trendingResults, popularResults, popularSerieResults] = await Promise.all([
                     getTrendingMovies(),
-                    getPopularMovies()
+                    getPopularMovies(),
+                    getPopularSeries()
                 ]);
                 setTrendingMovies(trendingResults);
                 setPopularMovies(popularResults);
+                setPopularSeries(popularSerieResults);
                 console.log(popularMovies);
             } catch (error) {
                 console.error("Errore nel fetching globale:", error);
@@ -50,6 +60,7 @@ export const MoviesDataProvider = ({ children }) => {
         topMovieToday,
         trendingMovies,
         popularMovies,
+        popularSeries,
         loading,
     };
 
