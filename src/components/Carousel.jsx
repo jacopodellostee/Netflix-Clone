@@ -47,7 +47,7 @@ function Carousel({ title, data, loading, error }) {
                     ref={carouselRef}
                 >
                     {data.map((item) => (
-                        <Card key={item.id} media={item} />
+                        <Card key={item.id} media={item} type={'small'}/>
                     ))}
                 </div>
 
