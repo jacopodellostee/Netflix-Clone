@@ -1,14 +1,20 @@
 import { useMoviesData } from '../providers/MoviesDataProvider';
 import Hero from '../components/Hero';
-
+import { Link } from 'react-router-dom';
+import { useFavoritesData } from '../providers/FavoritesContextProvider';
 
 
 function Homepage() {
     const { topRatedMovies: movies, nowPlayingMovies: moviesNowPlaying, topRatedSeries: series, nowPlayingSeries: seriesNowPlaying, loading, error } = useMoviesData();
 
+    const {addToFavorites } = useFavoritesData()
+
     return (
         <div className="homepage">
             <Hero />
+
+
+            {/* film */}
             <div className="container-fluid">
                 <h2 className="ms-4 text-xl font-bold" >Top Rated Movies</h2>
                 {loading && <p>Loading movies...</p>}
@@ -21,7 +27,7 @@ function Homepage() {
                                 <div className="carousel-wrapper">
                                     <img
                                         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                                        alt={movie.title}
+                                        alt={movie.title} className='size-12'
                                     />
                                 </div>
                                 <div className="carousel-details flex flex-col items-center">
@@ -29,14 +35,16 @@ function Homepage() {
 
                                     <div className="action-buttons">
                                         
-                                        <button className="add-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart">
+                                        <button onClick={() => addToFavorites(movie)} className="add-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart">
                                             <path d="M19 14c1.49-1.46 3-3.23 3-5.55a5.5 5.5 0 0 0-5.5-5.5c-1.8 0-3.64 1.2-4.5 2.5-1.1-1.3-3.2-2.5-4.5-2.5A5.5 5.5 0 0 0 2 8.45c0 2.32 1.51 4.09 3 5.55L12 22l7-8z" />
                                         </svg></button>
+                                        <Link to={`/movies/${movie.id}`}>
                                         <button className="info-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info">
                                             <circle cx="12" cy="12" r="10" />
                                             <path d="M12 16v-4" />
                                             <path d="M12 8h.01" />
                                         </svg></button>
+                                        </Link>
                                     </div>
                                 </div>
 
@@ -46,6 +54,8 @@ function Homepage() {
                         !loading && !error && <p>No movies found.</p>
                     )}
                 </div>
+
+                {/* film */}
                 <h2 className="ms-4 text-xl font-bold" >Recently Released Movies</h2>
                 {loading && <p>Loading movies...</p>}
                 {error && <p className="error">{error}</p>}
@@ -65,14 +75,18 @@ function Homepage() {
 
                                     <div className="action-buttons">
                                         
-                                        <button className="add-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart">
+                                        <button onClick={() => addToFavorites(movieNowPlaying)} className="add-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart">
                                             <path d="M19 14c1.49-1.46 3-3.23 3-5.55a5.5 5.5 0 0 0-5.5-5.5c-1.8 0-3.64 1.2-4.5 2.5-1.1-1.3-3.2-2.5-4.5-2.5A5.5 5.5 0 0 0 2 8.45c0 2.32 1.51 4.09 3 5.55L12 22l7-8z" />
                                         </svg></button>
-                                        <button className="info-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info">
-                                            <circle cx="12" cy="12" r="10" />
-                                            <path d="M12 16v-4" />
-                                            <path d="M12 8h.01" />
-                                        </svg></button>
+                                        <Link to={`/movies/${movieNowPlaying.id}`}>
+                                            <button className="info-button">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info">
+                                                    <circle cx="12" cy="12" r="10" />
+                                                    <path d="M12 16v-4" />
+                                                <path d="M12 8h.01" />
+                                                </svg>
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
 
@@ -82,6 +96,8 @@ function Homepage() {
                         !loading && !error && <p>No movies found.</p>
                     )}
                 </div>
+
+                {/*  Serie TV */}
                 <h2 className="ms-4 text-xl font-bold" >Top Rated Series Tv</h2>
                 {loading && <p>Loading Series Tv...</p>}
                 {error && <p className="error">{error}</p>}
@@ -101,14 +117,16 @@ function Homepage() {
 
                                     <div className="action-buttons">
                                         
-                                        <button className="add-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart">
+                                        <button onClick={() => addToFavorites(serie)} className="add-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart">
                                             <path d="M19 14c1.49-1.46 3-3.23 3-5.55a5.5 5.5 0 0 0-5.5-5.5c-1.8 0-3.64 1.2-4.5 2.5-1.1-1.3-3.2-2.5-4.5-2.5A5.5 5.5 0 0 0 2 8.45c0 2.32 1.51 4.09 3 5.55L12 22l7-8z" />
                                         </svg></button>
-                                        <button className="info-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info">
-                                            <circle cx="12" cy="12" r="10" />
-                                            <path d="M12 16v-4" />
-                                            <path d="M12 8h.01" />
-                                        </svg></button>
+                                        <Link to={`/tv/${serie.id}`}>
+                                            <button className="info-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info">
+                                                <circle cx="12" cy="12" r="10" />
+                                                <path d="M12 16v-4" />
+                                                <path d="M12 8h.01" />
+                                            </svg></button>
+                                        </Link>
                                     </div>
                                 </div>
 
@@ -137,14 +155,16 @@ function Homepage() {
 
                                     <div className="action-buttons">
                                         
-                                        <button className="add-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart">
+                                        <button onClick={() => addToFavorites(serieNowPlaying)} className="add-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart">
                                             <path d="M19 14c1.49-1.46 3-3.23 3-5.55a5.5 5.5 0 0 0-5.5-5.5c-1.8 0-3.64 1.2-4.5 2.5-1.1-1.3-3.2-2.5-4.5-2.5A5.5 5.5 0 0 0 2 8.45c0 2.32 1.51 4.09 3 5.55L12 22l7-8z" />
                                         </svg></button>
-                                        <button className="info-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info">
-                                            <circle cx="12" cy="12" r="10" />
-                                            <path d="M12 16v-4" />
-                                            <path d="M12 8h.01" />
-                                        </svg></button>
+                                        <Link to={`/tv/${serieNowPlaying.id}`}>
+                                            <button className="info-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info">
+                                                <circle cx="12" cy="12" r="10" />
+                                                <path d="M12 16v-4" />
+                                                <path d="M12 8h.01" />
+                                            </svg></button>
+                                        </Link>
                                     </div>
                                 </div>
 
