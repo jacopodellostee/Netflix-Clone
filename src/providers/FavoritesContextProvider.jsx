@@ -6,6 +6,8 @@ export function FavoritesContextProvider({ children }) {
   const [favorites, setFavorites] = useState([])
 
   function addToFavorites(show) {
+    if(favorites.includes(show)) return;
+
     setFavorites((prevFavorites) => [...prevFavorites, show])
   }
 
