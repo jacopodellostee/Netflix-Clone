@@ -12,7 +12,7 @@ function Movie() {
     } = useMoviesData();
 
     return (
-        <div className="movies-page-container min-h-screen bg-gray-900 pt-16">
+        <div className="movies-page-container min-h-screen pt-16">
             <CardGrid
                 title="Explore the Complete Movies Catalog"
                 data={discoverMovies}
