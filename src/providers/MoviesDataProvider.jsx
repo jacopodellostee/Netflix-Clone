@@ -40,6 +40,16 @@ async function getNowPlayingSeries() {
     return (await response.json()).results;
 }
 
+async function getDiscoverMovies(page = 1) {
+    const response = await fetch(
+        `${BASE_URL}/discover/movie?language=it-IT&sort_by=popularity.desc&page=${page}`,
+        {
+            headers: { Authorization: `Bearer ${ACCESS_TOKEN}` }
+        }
+    );
+    return await response.json();
+}
+
 export const MoviesDataProvider = ({ children }) => {
     const [trendingMovies, setTrendingMovies] = useState([]);
     const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -47,6 +57,12 @@ export const MoviesDataProvider = ({ children }) => {
     const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
     const [nowPlayingSeries, setNowPlayingSeries] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const [discoverMovies, setDiscoverMovies] = useState([]);
+    const [discoverPage, setDiscoverPage] = useState(1);
+    const [discoverTotalPages, setDiscoverTotalPages] = useState(1);
+    const [discoverLoading, setDiscoverLoading] = useState(false); // Loading separato per la griglia
+    const [discoverError, setDiscoverError] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -63,9 +79,9 @@ export const MoviesDataProvider = ({ children }) => {
                 setTopRatedSeries(topRatedSeries);
                 setNowPlayingMovies(nowPlayingMovies);
                 setNowPlayingSeries(nowPlayingSeries);
-                
+
             } catch (error) {
-                console.error("Errore nel fetching globale:", error);
+                console.error("Errore nel fetching globale della Homepage:", error);
             } finally {
                 setLoading(false);
             }
@@ -73,6 +89,34 @@ export const MoviesDataProvider = ({ children }) => {
 
         fetchData();
     }, []);
+
+    useEffect(() => {
+        const fetchDiscoverData = async () => {
+            setDiscoverLoading(true);
+            setDiscoverError(null);
+            try {
+                const data = await getDiscoverMovies(discoverPage);
+                setDiscoverMovies(data.results);
+                setDiscoverTotalPages(data.total_pages > 500 ? 500 : data.total_pages); // Limita a 500 pagine
+            } catch (error) {
+                setDiscoverError("Impossibile caricare i film. Riprova più tardi.");
+                console.error("Errore nel fetching della griglia:", error);
+            } finally {
+                setDiscoverLoading(false);
+            }
+        };
+
+        if (discoverPage >= 1 && discoverPage <= discoverTotalPages) {
+            fetchDiscoverData();
+        }
+
+    }, [discoverPage])
+    const handleDiscoverPageChange = (newPage) => {
+        if (newPage >= 1 && newPage <= discoverTotalPages) {
+            setDiscoverPage(newPage);
+            window.scrollTo(0, 0);
+        }
+    };
 
     const topMovieToday = trendingMovies.length > 0 ? trendingMovies[0] : null;
 
@@ -84,6 +128,13 @@ export const MoviesDataProvider = ({ children }) => {
         nowPlayingMovies,
         nowPlayingSeries,
         loading,
+
+        discoverMovies,
+        discoverPage,
+        discoverTotalPages,
+        discoverLoading,
+        discoverError,
+        handleDiscoverPageChange,
     };
 
     return (

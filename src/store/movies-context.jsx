@@ -8,6 +8,13 @@ const MoviesContext = createContext({
     nowPlayingMovies: [],
     nowPlayingSeries: [],
     loading: true,
+
+    discoverMovies: [],
+    discoverPage: 1,
+    discoverTotalPages: 1,
+    discoverLoading: false,
+    discoverError: null,
+    handleDiscoverPageChange: () => { },
 });
 
 export default MoviesContext;
