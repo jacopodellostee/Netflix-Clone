@@ -14,7 +14,10 @@ function Homepage() {
 
     return (
         <div className="homepage">
+
             <Hero />
+
+            {/* film */}
             <div className="container-fluid">
                 
                 <Carousel 
