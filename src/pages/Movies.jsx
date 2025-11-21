@@ -1,5 +1,5 @@
 import { useMoviesData } from '../providers/MoviesDataProvider';
-import MovieGrid from '../components/MovieGrid';;
+import CardGrid from '../components/CardGrid';;
 
 function Movie() {
     const {
@@ -13,8 +13,8 @@ function Movie() {
 
     return (
         <div className="movies-page-container min-h-screen bg-gray-900 pt-16">
-            <MovieGrid
-                title="Esplora il Catalogo Completo"
+            <CardGrid
+                title="Explore the Complete Movies Catalog"
                 data={discoverMovies}
                 currentPage={discoverPage}
                 totalPages={discoverTotalPages}

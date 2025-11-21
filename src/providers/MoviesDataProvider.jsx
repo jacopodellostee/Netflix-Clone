@@ -50,6 +50,16 @@ async function getDiscoverMovies(page = 1) {
     return await response.json();
 }
 
+async function getDiscoverSeries(page = 1) {
+    const response = await fetch(
+        `${BASE_URL}/discover/tv?language=it-IT&sort_by=popularity.desc&page=${page}`,
+        {
+            headers: { Authorization: `Bearer ${ACCESS_TOKEN}` }
+        }
+    );
+    return await response.json();
+}
+
 export const MoviesDataProvider = ({ children }) => {
     const [trendingMovies, setTrendingMovies] = useState([]);
     const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -61,8 +71,14 @@ export const MoviesDataProvider = ({ children }) => {
     const [discoverMovies, setDiscoverMovies] = useState([]);
     const [discoverPage, setDiscoverPage] = useState(1);
     const [discoverTotalPages, setDiscoverTotalPages] = useState(1);
-    const [discoverLoading, setDiscoverLoading] = useState(false); // Loading separato per la griglia
+    const [discoverLoading, setDiscoverLoading] = useState(false);
     const [discoverError, setDiscoverError] = useState(null);
+
+    const [discoverTv, setDiscoverTv] = useState([]);
+    const [discoverPageTv, setDiscoverPageTv] = useState(1);
+    const [discoverTotalPagesTv, setDiscoverTotalPagesTv] = useState(1);
+    const [discoverLoadingTv, setDiscoverLoadingTv] = useState(false);
+    const [discoverErrorTv, setDiscoverErrorTv] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -97,10 +113,10 @@ export const MoviesDataProvider = ({ children }) => {
             try {
                 const data = await getDiscoverMovies(discoverPage);
                 setDiscoverMovies(data.results);
-                setDiscoverTotalPages(data.total_pages > 500 ? 500 : data.total_pages); // Limita a 500 pagine
+                setDiscoverTotalPages(data.total_pages > 500 ? 500 : data.total_pages);
             } catch (error) {
-                setDiscoverError("Impossibile caricare i film. Riprova più tardi.");
-                console.error("Errore nel fetching della griglia:", error);
+                setDiscoverError("Unable to load movies. Try again later.");
+                console.error("Grid fetching error:", error);
             } finally {
                 setDiscoverLoading(false);
             }
@@ -114,6 +130,34 @@ export const MoviesDataProvider = ({ children }) => {
     const handleDiscoverPageChange = (newPage) => {
         if (newPage >= 1 && newPage <= discoverTotalPages) {
             setDiscoverPage(newPage);
+            window.scrollTo(0, 0);
+        }
+    };
+
+     useEffect(() => {
+        const fetchDiscoverData = async () => {
+            setDiscoverLoadingTv(true);
+            setDiscoverErrorTv(null);
+            try {
+                const data = await getDiscoverSeries(discoverPageTv);
+                setDiscoverTv(data.results);
+                setDiscoverTotalPagesTv(data.total_pages > 500 ? 500 : data.total_pages);
+            } catch (error) {
+                setDiscoverErrorTv("Unable to load Tv Series. Try again later.");
+                console.error("Grid fetching error:", error);
+            } finally {
+                setDiscoverLoadingTv(false);
+            }
+        };
+
+        if (discoverPageTv >= 1 && discoverPageTv <= discoverTotalPagesTv) {
+            fetchDiscoverData();
+        }
+
+    }, [discoverPage])
+    const handleDiscoverPageChangeTv = (newPage) => {
+        if (newPage >= 1 && newPage <= discoverTotalPagesTv) {
+            setDiscoverPageTv(newPage);
             window.scrollTo(0, 0);
         }
     };
@@ -135,6 +179,13 @@ export const MoviesDataProvider = ({ children }) => {
         discoverLoading,
         discoverError,
         handleDiscoverPageChange,
+
+        discoverTv,
+        discoverPageTv,
+        discoverTotalPagesTv,
+        discoverLoadingTv,
+        discoverErrorTv,
+        handleDiscoverPageChangeTv,
     };
 
     return (

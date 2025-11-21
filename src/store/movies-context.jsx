@@ -15,6 +15,13 @@ const MoviesContext = createContext({
     discoverLoading: false,
     discoverError: null,
     handleDiscoverPageChange: () => { },
+
+    discoverTv: [],
+    discoverPageTv: 1,
+    discoverTotalPagesTv: 1,
+    discoverLoadingTv: false,
+    discoverErrorTv: null,
+    handleDiscoverPageChangeTv: () => { },
 });
 
 export default MoviesContext;

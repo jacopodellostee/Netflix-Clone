@@ -1,9 +1,19 @@
-function Card({ media }) {
-    const title = media.title || media.name; 
+function Card({ media, className, type = 'default' }) {
+    const title = media.title || media.name;
+    let itemClass = 'carousel-item'
+    let wrapperClass = 'carousel-wrapper'
 
+    if (type === 'small') {
+        itemClass = 'carousel-item'
+        wrapperClass = 'carousel-wrapper'
+    }
+    else if (type === 'grid') {
+        itemClass = 'carousel-item-all'
+        wrapperClass = 'carousel-wrapper-all'
+    }
     return (
-        <div key={media.id} className="carousel-item">
-            <div className="carousel-wrapper">
+        <div key={media.id} className={itemClass}>
+            <div className={wrapperClass}>
                 <img
                     src={`https://image.tmdb.org/t/p/w500${media.poster_path}`}
                     alt={title}
