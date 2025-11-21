@@ -126,7 +126,7 @@ body{
 .carousel-wrapper-all {
 
     width: 100%; 
-    height: 350px;
+    height: auto;
     margin-right: 10px;
     overflow: hidden; 
     
@@ -149,4 +149,16 @@ body{
 
 .carousel-details{
     display: flex;
+}
+
+.xxl\:grid-cols-7 {
+    @media (width >= 90rem) {
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+    }
+}
+
+.xxl\:grid-cols-8 {
+    @media (width >= 100rem) {
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+    }
 }

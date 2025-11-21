@@ -18,13 +18,13 @@ function Hero() {
         <div
             className="hero"
             style={{
-                backgroundImage: `linear-gradient(to bottom, rgba(20,20,20,0), rgba(20,20,20,1)), url(${backdropUrl})`
+                backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(20,20,20,0), rgba(0, 0, 0, 1)), url(${backdropUrl})`
             }}
         >
-            
-            <div className="hero-content">
-                <h1 className="movie-title">{topMovieToday.title || topMovieToday.name}</h1>
-                <p className="movie-overview">{topMovieToday.overview}</p>
+
+            <div className="hero-content relative z-30 flex flex-col justify-end h-full p-10 text-white">
+                <h1 className="movie-title text-5xl font-extrabold mb-4">{topMovieToday.title || topMovieToday.name}</h1>
+                <p className="movie-overview text-lg max-w-xl">{topMovieToday.overview}</p>
             </div>
         </div>
     );
