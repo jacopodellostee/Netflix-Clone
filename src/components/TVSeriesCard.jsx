@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { useFavoritesData } from '../providers/FavoritesContextProvider';
 
-function TVSeriesCard({ tv }) { 
+function TVSeriesCard({ tv, itemClass, wrapperClass  }) { 
 
     const { favorites, addToFavorites, removeFromFavorites } = useFavoritesData();
 
@@ -17,8 +17,8 @@ function TVSeriesCard({ tv }) {
     }
 
     return (
-        <div key={tv.id} className="carousel-item">
-            <div className="carousel-wrapper">
+        <div key={tv.id} className={itemClass}>
+            <div className={wrapperClass}>
                 <img src={`https://image.tmdb.org/t/p/w500${tv.poster_path}`} alt={tv.name}/>
             </div>
             <div className="carousel-details flex flex-col items-center">
