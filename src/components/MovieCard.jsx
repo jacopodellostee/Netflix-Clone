@@ -4,7 +4,17 @@ import { useFavoritesData } from '../providers/FavoritesContextProvider';
 
 function MovieCard({ movie }) { 
 
-    const { addToFavorites } = useFavoritesData()
+    const { favorites, addToFavorites, removeFromFavorites } = useFavoritesData();
+
+    const isFavorite = favorites.some((fav) => fav.id === movie.id);
+
+    const handleFavoriteClick = () => {
+        if (isFavorite) {
+            removeFromFavorites(movie.id); 
+        } else {
+            addToFavorites(movie); 
+        }
+    }
 
     return (
         <div key={movie.id} className="carousel-item">
@@ -15,8 +25,8 @@ function MovieCard({ movie }) {
                 <p className="details-title truncate">{movie.title}</p>
                 <div className="action-buttons">
 
-                    <button className="add-button" onClick={() => addToFavorites(movie)}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-heart">
+                    <button className="add-button" onClick={handleFavoriteClick}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill={isFavorite ? "white" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-heart transition-all duration-300 ease-in-out">
                             <path d="M19 14c1.49-1.46 3-3.23 3-5.55a5.5 5.5 0 0 0-5.5-5.5c-1.8 0-3.64 1.2-4.5 2.5-1.1-1.3-3.2-2.5-4.5-2.5A5.5 5.5 0 0 0 2 8.45c0 2.32 1.51 4.09 3 5.55L12 22l7-8z" />
                         </svg>
                     </button>
