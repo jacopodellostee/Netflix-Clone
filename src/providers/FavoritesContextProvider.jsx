@@ -1,16 +1,16 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 
 import FavoritesContext from '../store/favorites-context'
 
 export function FavoritesContextProvider({ children }) {
   const [favorites, setFavorites] = useState([])
 
-  function addToFavorites(movie) {
-    setFavorites((prevFavorites) => [...prevFavorites, movie])
+  function addToFavorites(show) {
+    setFavorites((prevFavorites) => [...prevFavorites, show])
   }
 
   function removeFromFavorites(id) {
-    setFavorites((prevFavorites) => prevFavorites.filter((movie) => movie.id !== id))
+    setFavorites((prevFavorites) => prevFavorites.filter((show) => show.id !== id))
   }
 
   const contextValue = {
@@ -25,3 +25,7 @@ export function FavoritesContextProvider({ children }) {
     </FavoritesContext.Provider>
   )
 }
+
+export const useFavoritesData = () => {
+    return useContext(FavoritesContext);
+};
