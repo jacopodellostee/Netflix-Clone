@@ -22,7 +22,7 @@ function MovieCard({ movie, itemClass, wrapperClass }) {
                 <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
             </div>
             <div className="carousel-details flex flex-col items-center">
-                <p className="details-title truncate">{movie.title}</p>
+                <p className="details-title text-center truncate font-bold mt-2">{movie.title}</p>
                 <div className="action-buttons">
 
                     <button className="add-button" onClick={handleFavoriteClick}>
