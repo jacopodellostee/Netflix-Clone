@@ -6,6 +6,7 @@ import TVSeries from '../pages/TVSeries'
 import TVSeriesDetail from '../pages/TVSeriesDetail'
 import Favorites from '../pages/Favorites'
 import NotFound from '../pages/NotFound'
+import Search from '../pages/Search'
 
 const routes = [ {
       path: '/',
@@ -44,6 +45,12 @@ const routes = [ {
           path: 'tv/:id',
           Component: TVSeriesDetail,
           showInNav: false
+        },
+        {
+          path: 'search',
+          Component: Search,
+          showInNav: false, // Non la mostriamo nel menu principale
+          title: 'Search Results'
         },
         {
           path: '*',
