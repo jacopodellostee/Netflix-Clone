@@ -113,8 +113,8 @@ export default function MovieDetail() {
               className="w-full h-full object-cover"
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/20 to-transparent"></div>
         </div>
 
         <div className="relative z-10 h-full flex items-end px-6 md:px-12 pb-20">
