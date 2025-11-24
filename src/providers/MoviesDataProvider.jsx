@@ -42,7 +42,7 @@ async function getNowPlayingSeries() {
 
 async function getDiscoverMovies(page = 1) {
     const response = await fetch(
-        `${BASE_URL}/discover/movie?language=it-IT&sort_by=popularity.desc&page=${page}`,
+        `${BASE_URL}/discover/movie?language=en-EN&sort_by=popularity.desc&page=${page}`,
         {
             headers: { Authorization: `Bearer ${ACCESS_TOKEN}` }
         }
@@ -52,7 +52,7 @@ async function getDiscoverMovies(page = 1) {
 
 async function getDiscoverSeries(page = 1) {
     const response = await fetch(
-        `${BASE_URL}/discover/tv?language=it-IT&sort_by=popularity.desc&page=${page}`,
+        `${BASE_URL}/discover/tv?language=en-EN&sort_by=popularity.desc&page=${page}`,
         {
             headers: { Authorization: `Bearer ${ACCESS_TOKEN}` }
         }
@@ -97,7 +97,7 @@ export const MoviesDataProvider = ({ children }) => {
                 setNowPlayingSeries(nowPlayingSeries);
 
             } catch (error) {
-                console.error("Errore nel fetching globale della Homepage:", error);
+                console.error("Error in global fetching of the Homepage:", error);
             } finally {
                 setLoading(false);
             }

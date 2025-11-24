@@ -1,68 +1,37 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-sans: 'Roboto', sans-serif;
-  --font-heading: 'Nunito', sans-serif;
-  --color-neutral-100: #6b6b6c;
-  --color-primary: #7d035d;
-  --color-secondary: #f8bc0d;
-  --color-salmon: #fc4259;
-  --color-accent: #00d6db;
-  --text-heading-big: 3.125rem;
-  --text-heading-big--line-height: 1;
-  --text-heading-medium: 2.5rem;
-  --text-heading-medium--line-height: 1;
-  --text-heading-small: 1.5rem;
-  --text-heading-small--line-height: 1;
+    --font-sans: 'Roboto', sans-serif;
+    --font-heading: 'Nunito', sans-serif;
+    --color-neutral-100: #6b6b6c;
+    --color-primary: #7d035d;
+    --color-secondary: #f8bc0d;
+    --color-salmon: #fc4259;
+    --color-accent: #00d6db;
+    --text-heading-big: 3.125rem;
+    --text-heading-big--line-height: 1;
+    --text-heading-medium: 2.5rem;
+    --text-heading-medium--line-height: 1;
+    --text-heading-small: 1.5rem;
+    --text-heading-small--line-height: 1;
 }
 
 @utility container {
-  margin-inline: auto;
-  padding-inline: 2rem;
+    margin-inline: auto;
+    padding-inline: 2rem;
 }
 
 .linear-bg {
-  @apply bg-linear-to-b from-[#f6f6f6] to-[#f9f9f9];
+    @apply bg-linear-to-b from-[#f6f6f6] to-[#f9f9f9];
 }
 
 
-body{
+body {
     background-color: #000000;
     color: white;
 }
 
-.hero {
-    width: 100%; 
-    height: 80vh; 
-    background-size: cover;
-    background-position: center top; 
-    background-repeat: no-repeat;
-    position: relative; 
-    background-color: #141414;
-    margin-bottom: 20px; 
-}
-.hero-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 0 50px 80px 50px; 
-    max-width: 600px; 
-    color: white;
-}
 
-.movie-title {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.movie-overview {
-    font-size: 1.2rem;
-    line-height: 1.4;
-    max-width: 90%;
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
 .action-buttons button {
     padding: 10px 20px;
     font-size: 1.1rem;
@@ -77,7 +46,7 @@ body{
 .carousel-row {
     padding-left: 0.5rem;
     overflow-x: scroll;
-    scrollbar-width: none; 
+    scrollbar-width: none;
 }
 
 .carousel-row::-webkit-scrollbar {
@@ -85,52 +54,39 @@ body{
 }
 
 .carousel-item {
-    background: #1d1d1d;
+    background: black;
     border-radius: 10px;
     height: 100%;
     padding-bottom: 10px;
-    width: 250px; 
-    margin-right: 10px; 
-    position: relative; 
-    flex-shrink: 0; 
+    width: 250px;
+    margin-right: 10px;
+    position: relative;
+    flex-shrink: 0;
     cursor: pointer;
     transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
-    overflow: hidden; 
-}
-
-.carousel-item-all {
-    background: #1d1d1d;
-    border-radius: 10px;
-    height: auto;
-    padding-bottom: 10px;
-    width: 100%; 
-    margin-right: 10px; 
-    position: relative; 
-    flex-shrink: 0; 
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
-    overflow: hidden; 
+    overflow: hidden;
+    border: 1px solid #141414;
 }
 
 .carousel-wrapper {
 
-    width: 250px; 
+    width: 250px;
     height: 350px;
     margin-right: 10px;
-    overflow: hidden; 
-    
-    position: relative; 
+    overflow: hidden;
+
+    position: relative;
     cursor: pointer;
 }
 
 .carousel-wrapper-all {
 
-    width: 100%; 
+    width: 100%;
     height: 350px;
     margin-right: 10px;
-    overflow: hidden; 
-    
-    position: relative; 
+    overflow: hidden;
+
+    position: relative;
     cursor: pointer;
 }
 
@@ -139,14 +95,31 @@ body{
     height: 100%;
     object-fit: cover;
     transform: scale(1);
-    transition: transform 0.4s ease-in-out; 
+    transition: transform 0.4s ease-in-out;
 }
 
 .carousel-wrapper:hover img {
-    transform: scale(1.15); 
-    
+    transform: scale(1.15);
+
 }
 
-.carousel-details{
+.carousel-details {
     display: flex;
+}
+
+.xxl\:grid-cols-6 {
+    @media (width >=97rem) {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+}
+
+.xxl\:grid-cols-7 {
+    @media (width >=113rem) {
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+    }
+}
+
+.via-black\/20 {
+    --tw-gradient-via:
+        color-mix(in srgb, #000 20%, transparent);
 }

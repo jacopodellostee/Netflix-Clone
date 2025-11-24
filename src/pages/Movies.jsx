@@ -1,5 +1,5 @@
 import { useMoviesData } from '../providers/MoviesDataProvider';
-import CardGrid from '../components/CardGrid';;
+import CardGrid from '../components/CardGrid';
 
 function Movie() {
     const {

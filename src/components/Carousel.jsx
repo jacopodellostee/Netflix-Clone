@@ -17,9 +17,9 @@ function Carousel({ title, data, loading, error }) {
         }
     };
 
-    if (loading) return <p className="ms-4">Caricamento {title.toLowerCase()}...</p>;
+    if (loading) return <p className="ms-4">Loading {title.toLowerCase()}...</p>;
     if (error) return <p className="error ms-4">{error}</p>;
-    if (data.length === 0) return <p className="ms-4">Nessun {title.toLowerCase()} trovato.</p>;
+    if (data.length === 0) return <p className="ms-4">No {title.toLowerCase()} found.</p>;
 
     return (
         <div className="carousel-section relative group">
@@ -57,7 +57,7 @@ function Carousel({ title, data, loading, error }) {
                                opacity-0 group-hover:opacity-80 
                                transition-opacity duration-300 
                                hover:bg-opacity-85 rounded-l-lg
-                               pointer-events-none group-hover:pointer-events-auto" // Rendi i bottoni cliccabili solo all'hover
+                               pointer-events-none group-hover:pointer-events-auto"
                     onClick={() => scrollCarousel('right')}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-right">

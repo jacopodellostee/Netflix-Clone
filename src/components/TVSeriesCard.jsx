@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { useFavoritesData } from '../providers/FavoritesContextProvider';
 
-function TVSeriesCard({ tv, itemClass, wrapperClass  }) { 
+function TVSeriesCard({ tv, itemClass, wrapperClass }) {
 
     const { favorites, addToFavorites, removeFromFavorites } = useFavoritesData();
 
@@ -10,19 +10,21 @@ function TVSeriesCard({ tv, itemClass, wrapperClass  }) {
 
     const handleFavoriteClick = () => {
         if (isFavorite) {
-            removeFromFavorites(tv.id); 
+            removeFromFavorites(tv.id);
         } else {
-            addToFavorites(tv); 
+            addToFavorites(tv);
         }
     }
 
     return (
         <div key={tv.id} className={itemClass}>
-            <div className={wrapperClass}>
-                <img src={`https://image.tmdb.org/t/p/w500${tv.poster_path}`} alt={tv.name}/>
-            </div>
+            <Link to={`/tv/${tv.id}`}>
+                <div className={wrapperClass}>
+                    <img src={`https://image.tmdb.org/t/p/w500${tv.poster_path}`} alt={tv.name} />
+                </div>
+            </Link>
             <div className="carousel-details flex flex-col items-center">
-                <p className="details-title truncate">{tv.name}</p>
+                <p className="details-title text-center truncate w-full font-bold mt-2">{tv.name}</p>
                 <div className="action-buttons">
 
                     <button className="add-button" onClick={handleFavoriteClick}>

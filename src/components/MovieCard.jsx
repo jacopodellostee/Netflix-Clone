@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { useFavoritesData } from '../providers/FavoritesContextProvider';
 
-function MovieCard({ movie, itemClass, wrapperClass }) { 
+function MovieCard({ movie, itemClass, wrapperClass }) {
 
     const { favorites, addToFavorites, removeFromFavorites } = useFavoritesData();
 
@@ -10,19 +10,22 @@ function MovieCard({ movie, itemClass, wrapperClass }) {
 
     const handleFavoriteClick = () => {
         if (isFavorite) {
-            removeFromFavorites(movie.id); 
+            removeFromFavorites(movie.id);
         } else {
-            addToFavorites(movie); 
+            addToFavorites(movie);
         }
     }
 
     return (
+
         <div key={movie.id} className={itemClass}>
-            <div className={wrapperClass}>
-                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
-            </div>
+            <Link to={`/movies/${movie.id}`}>
+                <div className={wrapperClass}>
+                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                </div>
+            </Link>
             <div className="carousel-details flex flex-col items-center">
-                <p className="details-title truncate">{movie.title}</p>
+                <p className="details-title text-center truncate w-full font-bold mt-2">{movie.title}</p>
                 <div className="action-buttons">
 
                     <button className="add-button" onClick={handleFavoriteClick}>
@@ -31,7 +34,7 @@ function MovieCard({ movie, itemClass, wrapperClass }) {
                         </svg>
                     </button>
 
-                    <Link to={`/movies/${movie.id}`}> 
+                    <Link to={`/movies/${movie.id}`}>
                         <button className="info-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-info">
                                 <circle cx="12" cy="12" r="10" />
@@ -42,7 +45,8 @@ function MovieCard({ movie, itemClass, wrapperClass }) {
                     </Link>
                 </div>
             </div>
-        </div>
+        </div >
+
     );
 }
 
