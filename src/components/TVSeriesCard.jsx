@@ -22,7 +22,7 @@ function TVSeriesCard({ tv, itemClass, wrapperClass  }) {
                 <img src={`https://image.tmdb.org/t/p/w500${tv.poster_path}`} alt={tv.name}/>
             </div>
             <div className="carousel-details flex flex-col items-center">
-                <p className="details-title text-center truncate font-bold mt-2">{tv.name}</p>
+                <p className="details-title text-center truncate w-full font-bold mt-2">{tv.name}</p>
                 <div className="action-buttons">
 
                     <button className="add-button" onClick={handleFavoriteClick}>
