@@ -49,7 +49,7 @@ const routes = [ {
         {
           path: 'search',
           Component: Search,
-          showInNav: false, // Non la mostriamo nel menu principale
+          showInNav: false, 
           title: 'Search Results'
         },
         {
