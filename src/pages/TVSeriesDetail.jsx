@@ -52,8 +52,6 @@ export default function TVSeriesDetail() {
 
         const results = await getTVSeriesDetail();
 
-        console.log("results: " + results);
-
         setTvSeries(results);
 
       } catch (err) {

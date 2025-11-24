@@ -52,8 +52,6 @@ export default function MovieDetail() {
 
         const results = await getMovieDetail();
 
-        console.log("results:", results);
-
         setMovie(results);
 
       } catch (err) {
