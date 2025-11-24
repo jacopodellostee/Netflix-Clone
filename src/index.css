@@ -53,7 +53,7 @@ body{
     display: none;
 }
 
-.carousel-item, .carousel-item-all {
+.carousel-item {
     background: black;
     border-radius: 10px;
     height: 100%;
@@ -67,20 +67,6 @@ body{
     overflow: hidden; 
     border: 1px solid #141414;
 }
-
-/* .carousel-item-all {
-    background: black;
-    border-radius: 10px;
-    height: auto;
-    padding-bottom: 10px;
-    width: 100%; 
-    margin-right: 10px; 
-    position: relative; 
-    flex-shrink: 0; 
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
-    overflow: hidden; 
-} */
 
 .carousel-wrapper {
 
@@ -119,4 +105,16 @@ body{
 
 .carousel-details{
     display: flex;
+}
+
+.xxl\:grid-cols-6 {
+    @media (width >= 97rem) {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+}
+
+.xxl\:grid-cols-7 {
+    @media (width >= 113rem) {
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+    }
 }

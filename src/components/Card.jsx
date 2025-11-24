@@ -14,7 +14,7 @@ function Card({ media, type = 'default' }) {
     }
     
     if (type === 'grid') {
-        itemClass = 'carousel-item-all'
+        itemClass = 'carousel-item'
         wrapperClass = 'carousel-wrapper-all'
     }
 
