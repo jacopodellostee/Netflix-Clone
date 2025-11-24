@@ -103,7 +103,7 @@ export default function SearchBar({ onSearch }) {
         </div>
         <input
           type="text"
-          placeholder="Titles, people, genres"
+          placeholder="Enter a title..."
           className="bg-transparent border-none outline-none text-white px-3 py-1.5 w-full text-sm placeholder-zinc-500"
           value={query}
           onChange={(e) => handleSearch(e.target.value)}

@@ -14,7 +14,7 @@ export default function SearchResultItem({ item, onClick }) {
         src={
           item.poster_path
             ? `https://image.tmdb.org/t/p/w92${item.poster_path}`
-            : "https://via.placeholder.com/50x75?text=No+Img"
+            : null
         }
         alt={title}
         className="w-[40px] h-[60px] object-cover rounded shadow-sm flex-shrink-0"
