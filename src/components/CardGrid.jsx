@@ -12,30 +12,35 @@ function CardGrid({ title, data, currentPage, totalPages, loading, error, onPage
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xxl:grid-cols-6 xxl:grid-cols-7 gap-4 justify-items-center">
                 {data.map((item) => (
-                    <Card key={item.id} media={item} type={'grid'}/>
+                    <Card key={item.id} media={item} type={'grid'} />
                 ))}
             </div>
             <div className="flex justify-center items-center my-8 space-x-4 text-white">
-                <button
+                <a
                     onClick={() => onPageChange(currentPage - 1)}
                     disabled={currentPage <= 1}
-                    className="bg-red-600 hover:bg-red-700 disabled:bg-gray-700 p-2 rounded-lg transition-colors"
+                    className={`p-2 transition-colors underline ${currentPage <= 1
+                        ? "text-gray-500 cursor-not-allowed"
+                        : "text-gray-200 hover:text-red-700 cursor-pointer"
+                        }`}
                 >
-
                     Previous Page
-                </button>
+                </a>
 
                 <span className="text-lg">
                     Page {currentPage}/{totalPages}
                 </span>
 
-                <button
+                <a
                     onClick={() => onPageChange(currentPage + 1)}
                     disabled={currentPage >= totalPages}
-                    className="bg-red-600 hover:bg-red-700 disabled:bg-gray-700 p-2 rounded-lg transition-colors"
+                    className={`p-2 transition-colors underline ${currentPage >= totalPages
+                        ? "text-gray-500 cursor-not-allowed"
+                        : "text-gray-200 hover:text-red-700 cursor-pointer"
+                        }`}
                 >
                     Next Page
-                </button>
+                </a>
             </div>
         </div>
     );
