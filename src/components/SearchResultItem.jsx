@@ -1,3 +1,5 @@
+import ImageNotFound from '../assets/image-fallback-movie-not-found.png'
+
 export default function SearchResultItem({ item, onClick }) {
   const title = item.title || item.name;
   const date = item.release_date || item.first_air_date;
@@ -12,7 +14,7 @@ export default function SearchResultItem({ item, onClick }) {
         src={
           item.poster_path
             ? `https://image.tmdb.org/t/p/w92${item.poster_path}`
-            : null
+            : ImageNotFound
         }
         alt={title}
         className="w-[40px] h-[60px] object-cover rounded shadow-sm flex-shrink-0"

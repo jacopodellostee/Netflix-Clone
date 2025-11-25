@@ -1,3 +1,4 @@
+import ImageNotFound from '../assets/image-fallback-movie-not-found.png'
 import { Link } from "react-router-dom";
 
 import { useFavoritesData } from '../providers/FavoritesContextProvider';
@@ -21,7 +22,11 @@ function MovieCard({ movie, itemClass, wrapperClass }) {
         <div key={movie.id} className={itemClass}>
             <Link to={`/movies/${movie.id}`}>
                 <div className={wrapperClass}>
-                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                    <img src={
+                        movie.poster_path
+                            ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                            : ImageNotFound
+                    } alt={movie.title} />
                 </div>
             </Link>
             <div className="carousel-details flex flex-col items-center">
