@@ -49,7 +49,7 @@ export default function Search() {
         </h2>
 
         {results.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xxl:grid-cols-6 xxl:grid-cols-7 gap-4 justify-items-center">
             {results.map((item) => (
               <Card
                 key={item.id}
