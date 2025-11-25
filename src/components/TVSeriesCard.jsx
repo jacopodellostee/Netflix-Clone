@@ -20,7 +20,11 @@ function TVSeriesCard({ tv, itemClass, wrapperClass }) {
         <div key={tv.id} className={itemClass}>
             <Link to={`/tv/${tv.id}`}>
                 <div className={wrapperClass}>
-                    <img src={`https://image.tmdb.org/t/p/w500${tv.poster_path}`} alt={tv.name} />
+                    <img src={
+                        tv.poster_path
+                            ? `https://image.tmdb.org/t/p/w500${tv.poster_path}`
+                            : ImageNotFound
+                    } alt={tv.name} />
                 </div>
             </Link>
             <div className="carousel-details flex flex-col items-center">
