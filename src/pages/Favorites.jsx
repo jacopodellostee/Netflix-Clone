@@ -7,8 +7,8 @@ export default function Favorites() {
     if (!favorites || favorites.length === 0) {
         return (
             <div className="w-full min-h-screen bg-black text-white flex flex-col items-center justify-center">
-                <h2 className="text-3xl font-bold mb-4">Your list is empty</h2>
-                <p className="text-gray-400 text-lg">
+                <h2 className="text-3xl font-bold mb-4 w-[50%] text-center">Your list is empty</h2>
+                <p className="text-gray-400 text-lg w-[50%] text-center">
                     You haven't added anything to your favorites yet.
                     Go back to the Home page to add movies and TV shows!
                 </p>
