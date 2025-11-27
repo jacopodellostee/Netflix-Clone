@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-Netflix Clone is a Single Page Application (SPA) developed in React as the final exams. 
+Netflix Clone is a Single Page Application (SPA) developed in React as the final exam. 
 
-The application replicates the Netflix user interface and user experience by integrating The Movie Database (TMDB) API to fetch and display current movie and TV show data. 
+The application replicates the Netflix user interface and user experience by integrating The Movie Database (TMDB) API to fetch and display current movie and TV series. 
 
 This project serves as a demonstration of our skills and knowledge of React and it's practices, like state management, routing, API integration etc...
 
@@ -21,7 +21,7 @@ This project was developed by:
 
 The application enables users to:
 
-- **Browse Content:** Explore multiple categories of movies and TV shows (Trending, Top Rated, Netflix Originals) through TMDB API integration
+- **Browse Content:** Explore multiple categories of movies and TV series (Trending and Top Rated) through TMDB API integration
 - **Responsive User Interface:** Enjoy seamless navigation optimized for devices of all sizes using Tailwind CSS utility-first styling
 - **Favorites Management:** Add and remove movies and TV shows from a personal favorites list with persistent storage
 - **Content Details:** View comprehensive information for each title including plot summary, ratings, release year, genres, and cast information
@@ -37,7 +37,6 @@ The application enables users to:
 | **Routing** | React Router DOM | 7.9.5 | Client-side routing and navigation library |
 | **State Management** | Context API | Native | React's built-in solution for global state management |
 | **Styling** | Tailwind CSS | 4.x | Utility-first CSS framework for rapid UI development |
-| **Linting** | ESLint | 9.36 | Static code analysis tool for maintaining code standards |
 | **External API** | TMDB API | v3 | The Movie Database API for movie and TV show data |
 
 **NOTE** for a simple table structure, React in called a *framework* but in reality it's a **JS Library**
@@ -154,7 +153,6 @@ Complete routing implementation with all required routes:
 - `/tv/:id` - TV show detail page with dynamic routing
 - `/search` - Search results page with query string handling
 - `/favorites` - User's saved favorites list with persistence
-- `/about` - Project information and credits
 - `*` - 404 Not Found page for undefined routes
 
 **Routing Features:**
@@ -296,7 +294,7 @@ All commits follow semantic messaging standards:
 
 - `feat: ...`
 - `fix: ...`
-- `style: ...
+- `style: ...`
 - `chore: ...`
 - `refactor: ...`
 - `docs: ...`
