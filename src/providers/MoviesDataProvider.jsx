@@ -134,7 +134,7 @@ export const MoviesDataProvider = ({ children }) => {
         }
     };
 
-     useEffect(() => {
+    useEffect(() => {
         const fetchDiscoverData = async () => {
             setDiscoverLoadingTv(true);
             setDiscoverErrorTv(null);

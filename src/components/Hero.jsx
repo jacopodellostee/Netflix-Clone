@@ -23,8 +23,8 @@ function Hero() {
                         className="w-full h-full object-cover object-top"
                     />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-black/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-b from-black via-black/40 to-transparent"></div>
             </div>
             <div className="absolute bottom-0 left-0 w-full p-4 pb-10 md:px-12 md:pb-20 text-white z-10">
                 <div className="max-w-2xl">
