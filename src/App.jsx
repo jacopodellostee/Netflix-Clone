@@ -4,7 +4,6 @@ import { FavoritesContextProvider } from './providers/FavoritesContextProvider'
 import { MoviesDataProvider } from './providers/MoviesDataProvider'
 
 import routes from './routes/routes'
-import './App.css'
 
 const router = createBrowserRouter(routes)
 
