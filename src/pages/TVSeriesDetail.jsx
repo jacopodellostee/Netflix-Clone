@@ -113,8 +113,8 @@ export default function TVSeriesDetail() {
               className="w-full h-full object-cover"
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/20 to-transparent"></div>
+          <div className="absolute inset-0 bg-liner-to-t from-black via-black/20 to-transparent"></div>
+          <div className="absolute inset-0 bg-liner-to-b from-black via-black/20 to-transparent"></div>
         </div>
         <div className="relative z-10 h-full flex items-end px-6 md:px-12 pb-20">
           <div className="max-w-3xl">
@@ -265,7 +265,7 @@ export default function TVSeriesDetail() {
             {tvSeries.seasons.map((season) => (
               <div key={season.id} className="flex flex-col md:flex-row bg-black rounded-lg overflow-hidden shadow-lg transition duration-300">
 
-                <div className="w-full md:w-48 flex-shrink-0">
+                <div className="w-full md:w-48 shrink-0">
                   {season.poster_path ? (
                     <img
                       src={`https://image.tmdb.org/t/p/w200${season.poster_path}`}
